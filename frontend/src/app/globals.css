@@ -1,0 +1,400 @@
+@import "tailwindcss";
+
+/* ============================================================
+   SEAMARK — Global Styles
+   Government/Scientific Research System Design Language
+   ============================================================ */
+
+@theme {
+  --color-navy-900: #0a1628;
+  --color-navy-800: #0f1f3d;
+  --color-navy-700: #152952;
+  --color-navy-600: #1c3568;
+  --color-navy-500: #24497f;
+  --color-navy-400: #3a6bad;
+  --color-navy-300: #5f8cc7;
+  --color-navy-200: #92b4db;
+  --color-navy-100: #c5d8ed;
+  --color-navy-50: #eaf1f8;
+  
+  --color-slate-950: #0c0e14;
+  
+  --color-status-green: #2d7a3a;
+  --color-status-amber: #b5851a;
+  --color-status-red: #b53a2a;
+  --color-status-blue: #2a6fb5;
+  
+  --color-surface-primary: #ffffff;
+  --color-surface-secondary: #f4f5f7;
+  --color-surface-tertiary: #e8eaed;
+  --color-surface-dark: #1a1d24;
+  
+  --color-border-light: #d1d5db;
+  --color-border-medium: #9ca3af;
+  --color-border-dark: #4b5563;
+  
+  --color-text-primary: #111827;
+  --color-text-secondary: #4b5563;
+  --color-text-muted: #6b7280;
+  --color-text-inverse: #f9fafb;
+
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', ui-monospace, monospace;
+  --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* ---- Base ---- */
+html {
+  font-size: 14px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-surface-secondary);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-medium);
+  border-radius: 3px;
+}
+
+/* ---- Panel system ---- */
+.panel {
+  background: var(--color-surface-primary);
+  border: 1px solid var(--color-border-light);
+  border-radius: 3px;
+}
+
+.panel-header {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--color-border-light);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary);
+  background: var(--color-surface-secondary);
+}
+
+.panel-body {
+  padding: 12px;
+}
+
+/* ---- Status badges ---- */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-radius: 2px;
+}
+
+.status-online {
+  background: #d1fae5;
+  color: #065f46;
+  border: 1px solid #6ee7b7;
+}
+
+.status-warning {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fbbf24;
+}
+
+.status-degraded {
+  background: #fed7aa;
+  color: #9a3412;
+  border: 1px solid #fb923c;
+}
+
+.status-offline {
+  background: #fecaca;
+  color: #991b1b;
+  border: 1px solid #f87171;
+}
+
+.status-pass {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status-marginal {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-fail {
+  background: #fecaca;
+  color: #991b1b;
+}
+
+/* ---- Data table ---- */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.data-table th {
+  padding: 6px 10px;
+  text-align: left;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+  background: var(--color-surface-secondary);
+  border-bottom: 2px solid var(--color-border-light);
+  white-space: nowrap;
+}
+
+.data-table td {
+  padding: 5px 10px;
+  border-bottom: 1px solid var(--color-surface-tertiary);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.data-table tbody tr:hover {
+  background: var(--color-navy-50);
+}
+
+.data-table tbody tr.selected {
+  background: var(--color-navy-100);
+}
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: 1px solid;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-navy-400);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: var(--color-navy-700);
+  color: white;
+  border-color: var(--color-navy-700);
+}
+.btn-primary:hover {
+  background: var(--color-navy-600);
+}
+.btn-primary:disabled {
+  background: var(--color-navy-200);
+  border-color: var(--color-navy-200);
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--color-navy-700);
+  border-color: var(--color-border-light);
+}
+.btn-secondary:hover {
+  background: var(--color-surface-secondary);
+}
+
+.btn-danger {
+  background: white;
+  color: var(--color-status-red);
+  border-color: var(--color-status-red);
+}
+.btn-danger:hover {
+  background: #fef2f2;
+}
+
+.btn-sm {
+  padding: 4px 10px;
+  font-size: 0.7rem;
+}
+
+/* ---- Form controls ---- */
+.form-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+  margin-bottom: 4px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  border: 1px solid var(--color-border-light);
+  border-radius: 2px;
+  background: white;
+  color: var(--color-text-primary);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-navy-400);
+  box-shadow: 0 0 0 2px rgba(36, 73, 127, 0.15);
+}
+
+/* ---- KPI card ---- */
+.kpi-value {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-navy-800);
+  line-height: 1;
+}
+
+.kpi-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+.kpi-unit {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  margin-left: 2px;
+}
+
+/* ---- Recharts overrides ---- */
+.recharts-cartesian-grid line {
+  stroke: var(--color-surface-tertiary);
+}
+
+.recharts-text {
+  font-size: 0.65rem;
+  fill: var(--color-text-secondary);
+}
+
+/* ---- Process pipeline ---- */
+.pipeline {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.pipeline-step {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.pipeline-box {
+  padding: 6px 14px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border: 1px solid var(--color-border-light);
+  background: var(--color-surface-primary);
+  color: var(--color-text-secondary);
+}
+
+.pipeline-box.active {
+  background: var(--color-navy-700);
+  color: white;
+  border-color: var(--color-navy-700);
+}
+
+.pipeline-box.completed {
+  background: var(--color-navy-50);
+  color: var(--color-navy-700);
+  border-color: var(--color-navy-300);
+}
+
+.pipeline-arrow {
+  padding: 0 6px;
+  color: var(--color-border-medium);
+  font-size: 0.8rem;
+}
+
+/* ---- Sidebar ---- */
+.sidebar-section-title {
+  padding: 8px 16px 4px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-navy-300);
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-navy-200);
+  text-decoration: none;
+  transition: background 0.1s;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-link:hover {
+  background: rgba(255,255,255,0.05);
+  color: white;
+}
+
+.sidebar-link.active {
+  background: rgba(255,255,255,0.08);
+  color: white;
+  border-left-color: var(--color-navy-300);
+}
+
+/* ---- Map legend ---- */
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.65rem;
+  color: var(--color-text-secondary);
+}
+
+.legend-swatch {
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--color-border-light);
+}
+
+/* ---- Loading ---- */
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+.loading-pulse {
+  animation: pulse-subtle 1.5s ease-in-out infinite;
+}
